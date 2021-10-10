@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body {
+        .body {
             text-align: center;
         }
         .wrapper {
             width: 50%;
-            height: 20%;
+            height: 8%;
             display: inline-block;
         }
         .google_form_btn{
@@ -19,9 +19,18 @@
             font-size: 30px;
             font-weight: bolder;
         }
+        h1{
+            text-align: center;
+        }
     </style>
 </head>
-<body id="body">
+<body>
+<h1>里程登打</h1>
+<div id="bodyForm" class="body">
+</div>
+<h1>月報表</h1>
+<div id="bodyExcel" class="body">
+</div>
 </body>
 <script>
     setUp();
@@ -38,12 +47,30 @@
             "72": "https://docs.google.com/forms/d/e/1FAIpQLScL_5RkmSwUM6wNhn8-7tDtuo-PClWLWcJa4ZXzjab0auZiAg/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}",
             "一大91": "https://docs.google.com/forms/d/e/1FAIpQLSc_KVOQ-mVouqb8XRyaPJrfM9ERCArFI-Z3D4YfnH97YhwB6A/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}",
         };
+        let excel_link_list = {
+            "91": "https://docs.google.com/spreadsheets/d/1mXUvl73z4QY2I9vPj1KcqVZqmv3v1VDVQerISJf8Le0/edit#gid=749229193",
+            "11": "https://docs.google.com/spreadsheets/d/14c9NtMgajEZcQ2jjCNs4Tq1xT1ZzJWB96BWVJEqCHkw/edit#gid=749229193",
+            "71": "https://docs.google.com/spreadsheets/d/1CRy4_eNcEtKrnfgD833uMRZplNTHn8_zKLj_8yc2gpE/edit#gid=749229193",
+            "21": "https://docs.google.com/spreadsheets/d/1xAx0pfBY9DBK6T9iUieFebLambPfdw1bz9kannVTVP4/edit#gid=749229193",
+            "41": 'https://docs.google.com/spreadsheets/d/1PVCOjvJj3BQBMsOgyBM4XEt_Nf2I2i42cNnSsiw6UIk/edit#gid=749229193',
+            "42": "https://docs.google.com/spreadsheets/d/1WXqRsAcQReV7-iPrahOxPsTDNESivgZy2-0lZL9fTkM/edit#gid=749229193",
+            "55": "https://docs.google.com/spreadsheets/d/1iP6eZyIhQ3_fUNlMZhueVkUxOZQVsUDZI0PERhWnsW4/edit#gid=749229193",
+            "72": "https://docs.google.com/spreadsheets/d/1sijN8Zjh1vhbdkx1Jz1ivpaNjWSZZNoVsY79w5q5K_E/edit#gid=749229193",
+            "一大91": "https://docs.google.com/spreadsheets/d/1NnqpkZm_QS55nG9aP-wNks--8YQyz1p-entDs1xFfig/edit#gid=749229193",
+        };
 
-        buildLinkBtn(link_list);
+        buildLinkBtn("bodyForm", link_list);
+        buildLinkBtn("bodyExcel", excel_link_list);
 
-        Array.prototype.forEach.call(document.getElementsByClassName("google_form_btn"), (btn) => {
+
+        bindClick("bodyForm", link_list);
+        bindClick("bodyExcel", excel_link_list);
+    }
+    
+    function bindClick(id, list){
+        Array.prototype.forEach.call(document.getElementById(id).getElementsByClassName("google_form_btn"), (btn) => {
             btn.onclick = function () {
-                let [url, currentDateTime] = [link_list[this.innerText], getCurrentDateTime()];
+                let [url, currentDateTime] = [list[this.innerText], getCurrentDateTime()];
                 if (url && currentDateTime) {
                     parsed_url = url.replaceAll("${currentDateTime}", currentDateTime);
                     window.open(parsed_url, '_blank');
@@ -51,19 +78,17 @@
             }
         })
     }
-    
 
-
-    function buildLinkBtn(link_list){
-        body = document.getElementById("body");
-        for (name in link_list){
+    function buildLinkBtn(id, list){
+        bodyForm = document.getElementById(id);
+        for (name in list){
             wrapper = document.createElement("div");
             wrapper.className = "wrapper";
             btn = document.createElement("button");
             btn.className = "google_form_btn";
             btn.innerText = name;
             wrapper.append(btn);
-            body.append(wrapper);
+            bodyForm.append(wrapper);
         }
     }
     function getCurrentDateTime(){
