@@ -36,28 +36,28 @@
     setUp();
 
     function setUp(){
-        let link_list = {
-            "91": "https://docs.google.com/forms/d/e/1FAIpQLScO9wqT_yBz78J5gjnVMRVRPo1xfhUo-caYGhA6qUZUHpVD6A/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}",
-            "11": "https://docs.google.com/forms/d/e/1FAIpQLSfPWyb4v9mjb1tiX5ELNHlgrF9wvrmka8dCKPhgz2wOgEt6Qw/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}",
-            "71": "https://docs.google.com/forms/d/e/1FAIpQLSdvF4NP6zeSGDlctNv9aDxF85q59_Oo08Xx8GESO1fOCF8ZWg/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}",
-            "21": "https://docs.google.com/forms/d/e/1FAIpQLSeUcB-SygbhpTQSSk3LfusG56dJUg9puEOn3xBUTwxWoqUbqg/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}",
-            "41": 'https://docs.google.com/forms/d/e/1FAIpQLSeDP-FvRm61BzrjVxvLU6cPma7w3pMBQfztGFCVKd8PRz2FaQ/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}',
-            "42": "https://docs.google.com/forms/d/e/1FAIpQLSdC7-0Rfa_CBNCwI3_UChifCeDkzK3CA34mn2vGgzjwM9SRxA/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}",
-            "55": "https://docs.google.com/forms/d/e/1FAIpQLSconqrksWzymJy4BbVtzIKGEL20oWwd5wjRsUpCjrLRDYpM1Q/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}",
-            "72": "https://docs.google.com/forms/d/e/1FAIpQLScL_5RkmSwUM6wNhn8-7tDtuo-PClWLWcJa4ZXzjab0auZiAg/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}",
-            "一大91": "https://docs.google.com/forms/d/e/1FAIpQLSc_KVOQ-mVouqb8XRyaPJrfM9ERCArFI-Z3D4YfnH97YhwB6A/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}",
-        };
-        let excel_link_list = {
-            "91": "https://docs.google.com/spreadsheets/d/1mXUvl73z4QY2I9vPj1KcqVZqmv3v1VDVQerISJf8Le0/edit#gid=749229193",
-            "11": "https://docs.google.com/spreadsheets/d/14c9NtMgajEZcQ2jjCNs4Tq1xT1ZzJWB96BWVJEqCHkw/edit#gid=749229193",
-            "71": "https://docs.google.com/spreadsheets/d/1CRy4_eNcEtKrnfgD833uMRZplNTHn8_zKLj_8yc2gpE/edit#gid=749229193",
-            "21": "https://docs.google.com/spreadsheets/d/1xAx0pfBY9DBK6T9iUieFebLambPfdw1bz9kannVTVP4/edit#gid=749229193",
-            "41": 'https://docs.google.com/spreadsheets/d/1PVCOjvJj3BQBMsOgyBM4XEt_Nf2I2i42cNnSsiw6UIk/edit#gid=749229193',
-            "42": "https://docs.google.com/spreadsheets/d/1WXqRsAcQReV7-iPrahOxPsTDNESivgZy2-0lZL9fTkM/edit#gid=749229193",
-            "55": "https://docs.google.com/spreadsheets/d/1iP6eZyIhQ3_fUNlMZhueVkUxOZQVsUDZI0PERhWnsW4/edit#gid=749229193",
-            "72": "https://docs.google.com/spreadsheets/d/1sijN8Zjh1vhbdkx1Jz1ivpaNjWSZZNoVsY79w5q5K_E/edit#gid=749229193",
-            "一大91": "https://docs.google.com/spreadsheets/d/1NnqpkZm_QS55nG9aP-wNks--8YQyz1p-entDs1xFfig/edit#gid=749229193",
-        };
+        
+        var link_list = new Map();
+        link_list.set("91", "https://docs.google.com/forms/d/e/1FAIpQLScO9wqT_yBz78J5gjnVMRVRPo1xfhUo-caYGhA6qUZUHpVD6A/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}");
+        link_list.set("11", "https://docs.google.com/forms/d/e/1FAIpQLSfPWyb4v9mjb1tiX5ELNHlgrF9wvrmka8dCKPhgz2wOgEt6Qw/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}");
+        link_list.set("71", "https://docs.google.com/forms/d/e/1FAIpQLSdvF4NP6zeSGDlctNv9aDxF85q59_Oo08Xx8GESO1fOCF8ZWg/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}");
+        link_list.set("21", "https://docs.google.com/forms/d/e/1FAIpQLSeUcB-SygbhpTQSSk3LfusG56dJUg9puEOn3xBUTwxWoqUbqg/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}");
+        link_list.set("41", "https://docs.google.com/forms/d/e/1FAIpQLSeDP-FvRm61BzrjVxvLU6cPma7w3pMBQfztGFCVKd8PRz2FaQ/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}");
+        link_list.set("42", "https://docs.google.com/forms/d/e/1FAIpQLSdC7-0Rfa_CBNCwI3_UChifCeDkzK3CA34mn2vGgzjwM9SRxA/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}");
+        link_list.set("55", "https://docs.google.com/forms/d/e/1FAIpQLSconqrksWzymJy4BbVtzIKGEL20oWwd5wjRsUpCjrLRDYpM1Q/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}");
+        link_list.set("72", "https://docs.google.com/forms/d/e/1FAIpQLScL_5RkmSwUM6wNhn8-7tDtuo-PClWLWcJa4ZXzjab0auZiAg/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}");
+        link_list.set("一大91", "https://docs.google.com/forms/d/e/1FAIpQLSc_KVOQ-mVouqb8XRyaPJrfM9ERCArFI-Z3D4YfnH97YhwB6A/viewform?usp=pp_url&entry.1542104796=${currentDateTime}&entry.1588513119=${currentDateTime}");
+        
+        var excel_link_list = new Map();
+        excel_link_list.set("91", "https://docs.google.com/spreadsheets/d/1mXUvl73z4QY2I9vPj1KcqVZqmv3v1VDVQerISJf8Le0/edit#gid=749229193");
+        excel_link_list.set("11", "https://docs.google.com/spreadsheets/d/14c9NtMgajEZcQ2jjCNs4Tq1xT1ZzJWB96BWVJEqCHkw/edit#gid=749229193");
+        excel_link_list.set("71", "https://docs.google.com/spreadsheets/d/1CRy4_eNcEtKrnfgD833uMRZplNTHn8_zKLj_8yc2gpE/edit#gid=749229193");
+        excel_link_list.set("21", "https://docs.google.com/spreadsheets/d/1xAx0pfBY9DBK6T9iUieFebLambPfdw1bz9kannVTVP4/edit#gid=749229193");
+        excel_link_list.set("41", "https://docs.google.com/spreadsheets/d/1PVCOjvJj3BQBMsOgyBM4XEt_Nf2I2i42cNnSsiw6UIk/edit#gid=749229193");
+        excel_link_list.set("42", "https://docs.google.com/spreadsheets/d/1WXqRsAcQReV7-iPrahOxPsTDNESivgZy2-0lZL9fTkM/edit#gid=749229193");
+        excel_link_list.set("55", "https://docs.google.com/spreadsheets/d/1iP6eZyIhQ3_fUNlMZhueVkUxOZQVsUDZI0PERhWnsW4/edit#gid=749229193");
+        excel_link_list.set("72", "https://docs.google.com/spreadsheets/d/1sijN8Zjh1vhbdkx1Jz1ivpaNjWSZZNoVsY79w5q5K_E/edit#gid=749229193");
+        excel_link_list.set("一大91", "https://docs.google.com/spreadsheets/d/1NnqpkZm_QS55nG9aP-wNks--8YQyz1p-entDs1xFfig/edit#gid=749229193");
 
         buildLinkBtn("bodyForm", link_list);
         buildLinkBtn("bodyExcel", excel_link_list);
@@ -70,7 +70,7 @@
     function bindClick(id, list){
         Array.prototype.forEach.call(document.getElementById(id).getElementsByClassName("google_form_btn"), (btn) => {
             btn.onclick = function () {
-                let [url, currentDateTime] = [list[this.innerText], getCurrentDateTime()];
+                let [url, currentDateTime] = [list.get(this.innerText), getCurrentDateTime()];
                 if (url && currentDateTime) {
                     parsed_url = url.replaceAll("${currentDateTime}", currentDateTime);
                     window.open(parsed_url, '_blank');
@@ -81,7 +81,7 @@
 
     function buildLinkBtn(id, list){
         bodyForm = document.getElementById(id);
-        for (name in list){
+        list.forEach((value, name) => {
             wrapper = document.createElement("div");
             wrapper.className = "wrapper";
             btn = document.createElement("button");
@@ -89,7 +89,7 @@
             btn.innerText = name;
             wrapper.append(btn);
             bodyForm.append(wrapper);
-        }
+        });
     }
     function getCurrentDateTime(){
         let d = new Date();
